@@ -5,7 +5,7 @@ Application to save and manage tasks for employees.
 
 Screen 1: Login screen.
 
-Basic Logo, user ID and password.
+Must select User ID and type password: "admin" for Administrator and "user" for the rest. 
 
 Once a user logs in it will redirect to administrator or technician screen depending on the type of user.
 
