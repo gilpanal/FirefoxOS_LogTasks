@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>LOGTASKS</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="img/icon16.png">
+<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.0.min.css">
+<link rel="stylesheet" href="jquery/jquery.datetimepicker.css" />
+<link rel="stylesheet" href="css/style.css" /> 
+
+<script src="jquery/jquery.js"></script>
+<script src="jquery/jquery.mobile-1.4.0.min.js"></script>
+<script src="jquery/jquery.datetimepicker.js"></script>
+</head>
+<body>
+
+	<!-- LOGIN SCREEN -->
+	<div data-role="page" id="login-page">
+	
+
+		<div data-role="header" >
+			<h1>Welcome</h1>
+		</div>
+		<!-- /header -->
+
+		<div role="main" class="ui-content">			
+
+			<form id="formulario" class="userform">
+			
+				<label for="name">User ID:</label> 
+				
+				<select name="select-choice-8" id="select-choice-userid" data-native-menu="false" >				    
+				        <option value="standard" >Admin</option>			    
+				        <option value="firstOvernight">Jon Snow</option>
+				        <option value="expressSaver">Jesse Pinkman</option>
+				        <option value="ground">Walter White</option>				    
+				</select>			
+				<label for="password">Password:</label> 
+				<input type="password" name="password" id="clave" value="admin" data-clear-btn="true" autocomplete="off" >
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<a href="#" id="exitButton" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Exit</a>
+					</div>
+					<div class="ui-block-b">
+						<a href="#" id="loginButton" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Login</a>
+					</div>
+				</div>
+			</form>		
+			
+		</div><!-- /content -->	
+		
+	</div><!-- /page -->
+
+	<!-- ADMIN SCREEN -->
+	<div data-role="page" id="admin-page" >	
+		
+		<!-- LATERAL MENU -->
+		 <div data-role="panel" data-display="overlay" class="ui-body-c" data-position="right fixed" id="nav-panel-admin">
+	        <ul data-role="listview">	            
+	            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>             	            	   
+	            <li><a href="#popupSignOut" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-power ui-btn-icon-left ui-btn-a" data-rel="popup" data-position-to="window" >Sign out</a></li>	                                       
+	        </ul>
+	    </div><!-- /panel -->
+
+		<!-- POP-UP SIGN OUT -->
+		<div data-role="popup" id="popupSignOut" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		
+			<div data-role="content" data-theme="a">
+				<h3 class="ui-title">Do you really want to log off?</h3>
+				<p></p>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<button id="cancelbutton" data-rel="back" data-theme="c">NO</button>
+					</div>
+					<div class="ui-block-b">
+						<button id="signout-button" data-transition="flow" data-theme="c">YES</button>
+					</div>
+				</div>
+			</div>
+		</div><!-- /popup -->
+
+		<div data-role="header">
+		   
+			<h1>ADMINISTRATOR</h1>
+			<a href="#nav-panel-admin" class="ui-btn ui-btn-right ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>			
+			
+		</div><!-- /header -->
+
+		
+		<div data-role="tabs">
+		
+			<div data-role="navbar" id="navbar-admin" data-iconpos="left">
+				<ul>
+					<li><a href="#tab-list-tasks-admin" data-tab-class="tab1-admin" data-icon="grid">TASKS</a></li>
+					<li><a href="#tab-add-task-admin"  data-tab-class="tab2-admin" data-icon="gear">MANAGE</a></li>
+					<li><a href="#tab-list-users-admin"  data-tab-class="tab3-admin" data-icon="user">USERS</a></li>
+					
+				</ul>				
+			</div><!-- /navbar -->
+			<div id="tab-list-tasks-admin" class="ui-content">				
+				<ul data-role="listview" id="list-tasks-admin" data-inset="true" class="box"></ul>				
+			</div>
+			<div id="tab-add-task-admin" class="ui-content">
+				<select id="select-choice-name"></select><br>				
+				<fieldset id="listTasksTech" data-role="controlgroup"></fieldset>	
+				
+				<!-- PANEL NEW TASK -->
+				<div data-role="panel" data-position="right"  data-display="overlay" data-theme="a" id="add-newtask-panel">       
+		            	            
+		           	<input type='hidden' id='infoTask' value="" name="">		                    
+		           
+		            <label for="dateof-task">Date:</label>
+		            <input type="text" id="dateof-task" readonly="true" name="dateof-task" value=""></input>
+		            
+		            <label for="textarea-description">Description:</label>
+					<textarea  name="textarea-description" id="textarea-description"></textarea>
+					
+					<label for="timeof-task">Duration (hrs):</label>
+					<input type="text" readonly="true" data-clear-btn="true" name="timeof-task" id="timeof-task" value="02:00" placeholder="02:00 h.">
+					
+					<div class="ui-field-contain">
+						<label for="slider-flip-done">Is done:</label>
+						<select name="slider-flip-done" id="slider-flip-done" data-role="slider" >
+				            <option value="off" selected="">No</option>
+				            <option value="on">Yes</option>
+				         </select>
+					</div>					               
+		          
+		           <br>
+		            <div class="ui-grid-a">
+						<div class="ui-block-a">
+							<button id="boton-marcar" data-rel="close" data-theme="c">Save</button>
+						</div>
+						<div class="ui-block-b">
+							<button id="boton-desmarcar"data-rel="close" data-theme="c">Delete</button>
+						</div>
+					</div> 	            
+	       
+	    		</div><!-- /panel -->								
+			</div><!-- /ui-content -->	
+			
+			<div id="tab-list-users-admin" class="ui-content">
+					
+					<ul data-role="listview" id="list-users-admin" data-inset="true" class="box"></ul>
+				</div>
+			<p></p>
+		</div>			
+
+	</div><!-- /page -->	
+	
+	
+	<!-- DETAILED TECHNICIAN INFORMATION -->
+	<div data-role="page" id="page-tech-info">
+
+		<div data-role="header">
+		
+			<a href="#admin-page" data-back-btn-text="previous" data-icon="arrow-l" data-transition="slide">Back</a>
+			<h1>About technician</h1>	
+			
+		</div><!-- /header -->	
+
+		<div role="main" class="ui-content" id="technician-moreinfo">			 
+
+			<form>		
+				<ul data-role="listview" id="listview-info-user" data-inset="true">								
+					<li class="ui-field-contain">
+						<img src="img/logo.png" id="img-user-moreinfo">						
+						<!-- <input type='hidden' id='infoTechnician' value="">  -->
+						<div id="technician-name"></div>
+					</li>				
+					
+					<li class="ui-field-contain">
+					
+						<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+						    <h4>List of tasks</h4>
+						    <ul id="listof-tech-task-profile" data-role="listview" data-inset="false">
+						        
+						    </ul>
+						</div>
+					</li>			
+					
+				</ul>					
+			</form>	
+		
+		</div><!-- /content -->		
+
+	</div><!-- /page -->
+	
+	
+	<!-- DETAILED TASK INFORMATION TECHNICIAN-->
+	<div data-role="page" id="page-task-moreinfo">
+
+		<div data-role="header">
+		
+			<a href="#" data-rel="back" data-back-btn-text="previous" data-icon="arrow-l" data-transition="slide">Back</a>
+			<h1>Task information</h1>			
+			<a href="#"  id="set-task-done" data-theme="a" data-icon="check">Done</a>
+		</div><!-- /header -->	
+
+		<div role="main" class="ui-content" id="content-task-moreinfo">			 
+
+			<form>
+			
+				<ul data-role="listview" id="listview-info-task" data-inset="true">
+								
+					<li class="ui-field-contain">
+						<img src="img/logo.png" id="img-task-moreinfo">						
+						<!--   <input type='hidden' id='infoTribu' value=""> -->
+						<div id="typeof-task"></div>
+					</li>					
+					 <li class="ui-field-contain">
+					
+						<p style="font-size:16px">Technician:</p>							
+						<input disabled='disabled' type='text' name='task-technician' id='task-technician' value="">
+					</li>
+					 <li class="ui-field-contain">
+					
+						<p style="font-size:16px">Description:</p>					
+						<textarea  disabled='disabled'  name='task-description'	id='task-description' ></textarea>
+					</li>
+					 <li class="ui-field-contain">
+					
+						<p style="font-size:16px">Date:</p>							
+						<input disabled='disabled' type='text' name='task-date'	id='task-date' value="">
+					</li>
+					
+					 <li class="ui-field-contain">
+					
+						<p style="font-size:16px">Duration (hrs):</p>							
+						<input disabled='disabled' type='text' name='task-duration'	id='task-duration' value="">
+					</li>	
+				
+					
+				</ul>					
+			</form>	
+		
+		</div><!-- /content -->		
+
+	</div><!-- /page -->
+
+
+	<!-- TECHNICIAN SCREEN -->
+	<div data-role="page" id="technician-page" >
+	
+		<!-- LATERAL MENU -->
+		 <div data-role="panel" data-display="overlay" class="ui-body-c" data-position="right fixed" id="nav-panel-tech">
+	        <ul data-role="listview">	            
+	            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>             	            	   
+	            <li><a href="#popupSignOutTech" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-power ui-btn-icon-left ui-btn-a" data-rel="popup" data-position-to="window" >Sign out</a></li>	                                       
+	        </ul>
+	    </div><!-- /panel -->
+
+		<!-- POP-UP SIGN OUT -->
+		<div data-role="popup" id="popupSignOutTech" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		
+			<div data-role="content" data-theme="a">
+				<h3 class="ui-title">Do you really want to log off?</h3>
+				<p></p>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<button id="cancelbuttonTech" data-rel="back" data-theme="c">NO</button>
+					</div>
+					<div class="ui-block-b">
+						<button id="signout-button-Tech" data-transition="flow" data-theme="c">YES</button>
+					</div>
+				</div>
+			</div>
+		</div><!-- /popup -->
+
+		<div data-role="header" >
+			<h1>TECHNICIAN</h1>
+			<a href="#nav-panel-tech" class="ui-btn ui-btn-right ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>			
+		</div>
+		<!-- /header -->
+
+		<div role="main" class="ui-content">
+			
+			<ul data-role="listview" data-inset="true">
+				<li><img id="technician-profile-img" src="img/users/JonSnow.jpg"><div id="technician-profile-name"><h3 id="profile-technician-name"></h3><h2 id="profile-technician-pending" style="white-space:normal; font-weight:normal;"></h2></div></li>
+			</ul>
+
+			<ul data-role="listview" id="list-tasks-technician" data-inset="true" class="box"></ul>
+
+		</div><!-- /content -->
+		
+	</div><!-- /page -->	
+	
+	
+	<script src="js/utils.js"></script>
+	<script src="js/database.js"></script>	
+	<script src="js/admin/list_tasks_admin.js"></script>
+	<script src="js/admin/new_task_admin.js"></script>
+	<script src="js/admin/list_users.js"></script>
+	<script src="js/admin/admin_page.js"></script>
+	<script src="js/technician/technician_screen.js"></script>
+	<script src="js/login.js"></script>
+	
+</body>
+</html>
