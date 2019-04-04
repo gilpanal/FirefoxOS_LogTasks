@@ -26,3 +26,4 @@ If the user logged on is a technician, the screen should display the tasks assig
 
 The technician must be able to mark the task as completed and such task should be somehow differentiated from pending tasks.
 
+![Screenshot](screenshot_tasks.png)

@@ -1,6 +1,6 @@
-var prevSelection = "tab1-admin"; // por defecto
+var prevSelection = "tab1-admin"; 
 
-//Guarda el TAB seleccionado
+
 $("#navbar-admin ul li").on("click", function() {
 	var newSelection = $(this).children("a").attr("data-tab-class");
 	if(newSelection == "tab1-admin"){
@@ -10,7 +10,7 @@ $("#navbar-admin ul li").on("click", function() {
 		recuperateTasksOfTech();
 	}
 	else if(newSelection == "tab3-admin"){
-		//recuperateTasksOfTech();
+		
 		 numberTasksOfTechs();
 	}
 	prevSelection = newSelection;
@@ -19,9 +19,7 @@ $("#navbar-admin ul li").on("click", function() {
 
 
 
-// Marca el TAB que se habia quedado seleccionado
 jQuery("#admin-page").on( "pageshow", function( event ) {	
-//jQuery("#admin-page").on( "pagebeforeshow", function( event ) {	
 
 	if(prevSelection == "tab1-admin"){
 		loadAllTasks();
@@ -30,7 +28,7 @@ jQuery("#admin-page").on( "pageshow", function( event ) {
 		recuperateTasksOfTech();
 	}
 	else if(prevSelection == "tab3-admin"){
-		//recuperateTasksOfTech();
+	
 		 numberTasksOfTechs();
 	}
 	$("#navbar-admin ul li").find('a[data-tab-class="' + prevSelection + '"]').addClass("ui-btn-active");		

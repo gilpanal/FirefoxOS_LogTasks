@@ -56,9 +56,7 @@ function loadSessionTech(nameOfTech){
 							taskImagePath = taskImagePath.replace(/\s/g, "");		
 								
 						}
-							// Llama a la funcion definida en UTILS que asigna la imagen correspondiente
-						var picturePath = "img/tasks/"+taskImagePath+".jpg";
-							
+						var picturePath = "img/tasks/"+taskImagePath+".jpg";							
 					
 						listado += "<li data-icon="+icontype+"><a href='javascript:gotoTask("+i+");'><img class='thumb' src='" + picturePath + "' /><h3 >" + typeOfTask + ' ' + campoVacio + ''
 						+ "</h3><p>" + dateOfTask + ' ' + campoVacio + "</p></a></li>";
@@ -69,20 +67,17 @@ function loadSessionTech(nameOfTech){
 				
 				console.log("NUMBER " + numberOfTasks);
 				var checkoutlist = $('#list-tasks-technician');
-				//checkoutlist.empty();
+		
 				checkoutlist.html(listado).listview("refresh");
 		
 			} else {
 				console.log("No hay datos que mostrar");
 				$('#list-tasks-technician').empty();				
-				//var elementEspera = document.getElementById('lista-citas');
-				//elementEspera.innerHTML = "<b>No se han recuperado tributos.</b>";
 			}
 			
 		}
 		
 		$("#profile-technician-pending").text("Pending tasks: "+numberOfTasks);
-		//$('#technician-profile-name').append('<h3 >'+nameOfTech+'</h3><h2 style="white-space:normal; font-weight:normal;">Pending tasks: '+numberOfTasks+'</h2>');
 }
 
 

@@ -54,7 +54,6 @@ $(document).on('change', '#select-choice-name', function() {
 	recuperateTasksOfTech();
 });
 
-//function recuperateTasksOfTech(nameOfTech) {
 function recuperateTasksOfTech() {
 	var nameOfTech = $('#select-choice-name').find("option:selected").text();
 
@@ -62,7 +61,7 @@ function recuperateTasksOfTech() {
 		nameOfTech = nameOfTech.replace(/\s/g, "");		
 	}
 
-	var arr = window['arrayTasks' + nameOfTech];// to accesss to a variable with a variable name												
+	var arr = window['arrayTasks' + nameOfTech];												
 	var lengthOfarr = arr.length;	
 
 	$("#listTasksTech").empty(); 
@@ -85,7 +84,7 @@ function recuperateTasksOfTech() {
 
 }
 
-// It marks tasks from the local storage
+
 function markTasksCached(){	
 	
 	

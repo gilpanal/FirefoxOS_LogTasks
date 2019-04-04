@@ -41,7 +41,7 @@ function loadAllTasks(){
 						taskImagePath = taskImagePath.replace(/\s/g, "");		
 						
 					}
-					// Llama a la funcion definida en UTILS que asigna la imagen correspondiente
+					
 					var picturePath = "img/tasks/"+taskImagePath+".jpg";
 					
 			
@@ -51,14 +51,13 @@ function loadAllTasks(){
 				}
 		
 				var checkoutlist = $('#list-tasks-admin');
-				//checkoutlist.empty();
+			
 				checkoutlist.html(listado).listview("refresh");
 		
 			} else {
 				console.log("No hay datos que mostrar");
 				$('#list-tasks-admin').empty();				
-				//var elementEspera = document.getElementById('lista-citas');
-				//elementEspera.innerHTML = "<b>No se han recuperado tributos.</b>";
+		
 			}
 			
 		} 
@@ -93,11 +92,8 @@ function gotoTask(posTask){
 	$('#task-technician').val(arrayObjetos[posTask].technicianName);
 	$( "#task-description" ).textinput({ autogrow: true });
 	$('#task-description').text(arrayObjetos[posTask].description);
-	//$('#task-description').val(arrayObjetos[posTask].description);
 	$('#task-date').val(arrayObjetos[posTask].dateOfTask);
 	$('#task-duration').val(arrayObjetos[posTask].durationOfTask);
-	
-	//this.isDone = isDone;
 	
 	
 }

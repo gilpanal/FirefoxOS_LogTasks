@@ -85,17 +85,14 @@ function detailUserInfo(pos){
 	$('#technician-name').empty();
 	$('#technician-name').append('<h3 id="about-technician-name">'+arrayUsers[pos]+'</h3><p style="white-space:normal; font-weight:normal;">Technician</p>');
 	
-	//showTechnicianTasks(arrayUsers[pos]);	
-	
 }
 
 jQuery("#page-tech-info").on( "pageshow", function( event ) {	
 	
-	//console.log("BEFORE SHOW " + $("#about-technician-name").text());
+
 	var usernameTech = $("#about-technician-name").text();
 	showTechnicianTasks(usernameTech);
-//	var techname = $("#profile-technician-name").text();
-//	loadSessionTech(techname);
+
 		
 });
 
@@ -137,7 +134,7 @@ function showTechnicianTasks(nameOfTech){
 			checkoutlist.html(listado).listview("refresh");
 	
 		} else {
-			console.log("No hay datos que mostrar");
+			
 			$('#listof-tech-task-profile').empty();				
 			
 		}		

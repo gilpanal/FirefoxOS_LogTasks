@@ -2,7 +2,7 @@
 jQuery( "#loginButton" ).on( "vclick", function( event ) {
 	 
 	var userName = $("#select-choice-userid option:selected").text();
-	//var userName = $("#nombredeusuario").val();
+	
 	var userPassword = $("#clave").val();
 	
 	if((userPassword == "admin")&&(userName == "Admin")){		  
@@ -23,8 +23,6 @@ jQuery( "#loginButton" ).on( "vclick", function( event ) {
 			
 			$("#technician-profile-img").attr("src",imagePathUser);
 			$.mobile.pageContainer.pagecontainer('change', '#technician-page', {transition: 'slide' });
-			//console.log("USER " + userName);
-			//loadSessionTech(userName);
 			
 		}
 		else{
@@ -63,8 +61,3 @@ function userExists(nameUser){
 	
 	return exists;
 }
-
-/* Al pulsar SI cuando se selecciona SALIR*/
-$("#exitButton").click(function() {
-	navigator.app.exitApp();
-});

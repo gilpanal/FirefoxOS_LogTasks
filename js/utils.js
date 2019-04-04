@@ -1,4 +1,3 @@
-/** Funciones para trabajar con arrays del localstorage **/
 Storage.prototype.setArray = function(key, obj) {
 	return this.setItem(key, JSON.stringify(obj))
 }
@@ -9,7 +8,7 @@ Storage.prototype.deleteArray = function(key) {
 	return this.removeItem(key)
 }
 
-/** Funcion para comprobar si un string contiene espacios en blanco **/
+/* Check if string contains whitespace */
 function hasWhiteSpace(s) {
 
 	return s.indexOf(' ') >= 0;

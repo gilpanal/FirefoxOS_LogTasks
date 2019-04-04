@@ -1,7 +1,7 @@
 {
   "name": "LogTasks",
   "version":"0.0.1",
-  "description": "Application to save and manage tasks for employees",
+  "description": "Demo app to asign tasks to employees",
   "launch_path": "/index.html",
   "icons": {
    "16": "/img/icon16.png",
@@ -12,13 +12,7 @@
   },
   "developer": {
     "name": "gilpanal",
-    "url": "https://github.com/gilpanal"
+    "url": "https://github.com/gilpanal/FirefoxOS_LogTasks"
   },
-  "default_locale": "es",
-  "type": "privileged",
-  "permissions": {
-        "geolocation": {
-            "description": "Marking out user location"
-        }
-    }
+  "default_locale": "en"
 }
